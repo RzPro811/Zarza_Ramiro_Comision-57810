@@ -1,0 +1,16 @@
+{% extends "Peluches/inicio.html" %}
+{% load static %}
+
+
+{% block titulo %}
+<h1 class="masthead-heading mb-0">Se a comprado {{compra.juego}} exitosamente</h1>
+<h2 class="masthead-subheading mb-0">disfruta tu juego de mesa</h2>
+{% endblock titulo %}
+
+
+{% block botones %}
+<a class="btn btn-primary btn-xl rounded-pill mt-5" href="{% url 'mesa' %}">Volver a Juegos de Mesa</a>
+{% endblock botones %}
+    
+{% block cuerpo_de_la_pagina %}
+{% endblock cuerpo_de_la_pagina %}

@@ -1,0 +1,25 @@
+{% extends "tienda/index.html" %}
+{% load static %}
+
+
+{% block titulo %}
+<h1 class="masthead-heading mb-0">Figuras de Accion</h1>
+<h2 class="masthead-subheading mb-0">formularios</h2>
+{% endblock titulo %}
+
+
+{% block botones %}
+{% endblock botones %}
+
+{% block cuerpo_de_la_pagina %}
+<div class = "d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3"> 
+    <form action="" method = "post">
+        {% csrf_token %}
+        <table>
+            {{form}}
+        </table>
+        <button type = "sumbit" value= "guardar">Guardar</button>
+    </form>
+</div>
+{% endblock %}
+    

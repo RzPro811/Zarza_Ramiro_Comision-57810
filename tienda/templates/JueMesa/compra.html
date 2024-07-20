@@ -1,0 +1,32 @@
+{% extends 'JueMesa/inicio.html' %}
+{% load static %}
+
+
+{% block titulo %}
+<section id="scroll">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-6 order-lg-2">
+                <div class="p-5">
+                    <img height=500px weight=500px src= {{compra.foto.url}} alt="Juego de mesa... Esta bien, no encontré una imagen en cuestión" />
+                </div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <div class="p-5">
+                    <h1 class="masthead-heading mb-0">Comprar</h1>
+                    <h1>{{compra.juego}}</h1>
+                    <h2>{{compra.disponibles}} Disponibles</h2>
+                    {%if compra.adultos%}
+                    <p class= "danger">NO APTO PARA MENORES DE EDAD</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <h3>Confirmar Compra</h3>
+        <a href="{% url 'mesaSold' compra.id %}" class="btn btn-primary">${{compra.precio}}</a>
+    </div>
+</section>
+{% endblock titulo %}
+
+
+

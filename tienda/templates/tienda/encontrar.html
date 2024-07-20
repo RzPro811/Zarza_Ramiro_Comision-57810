@@ -1,0 +1,185 @@
+{% extends "tienda/index.html" %}
+{% load static %}
+
+
+{% block titulo %}
+<h1 class="masthead-heading mb-0">Resultados de la busqueda</h1>
+{% endblock titulo %}
+
+
+{% block cuerpo_de_la_pagina %}
+<h1>Peluches</h1>
+<table class = "table table-stripped">
+    <thead>
+        <tr>
+            <th>peluche</th>
+            <th>precio</th>
+            <th>disponibles</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for x in peluches %}
+        {% if x.en_stock %}
+            <tr>
+                <td>{{x.producto}}</td>
+                <td>${{x.precio}}</td>
+                <td>{{x.disponibles}} disponibles </td> 
+                <td>
+                    <a href="{% url 'peluchesSell' x.id %}" class="btn btn-primary">Comprar</a>
+                </td>
+            </tr>
+        {% endif %}
+        {% endfor %}
+        {% for x in peluches %}
+        {% if not x.en_stock %}
+            <tr>
+                <td>{{x.producto}}</td>
+                <td>${{x.precio}}</td>
+                <td>Agotados</td>
+                <td></td>
+            </tr>
+        {% endif %}
+        {% endfor %}
+    </tbody>
+</table>          
+
+<h2>Figuras de Accion</h2>
+<table class = "table table-stripped">
+    <thead>
+        <tr>
+            <th>Figura</th>
+            <th>Fabricante</th>
+            <th>Precio</th>
+            <th>disponibles</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for x in figuras %}
+        {% if x.en_stock %}
+            <tr>
+                <td>{{x.figura}} - {{x.origen}}</td>
+                <td>{{x.fabricante}}</td>
+                <td>${{x.precio}}</td>
+                <td>{{x.disponibles}} disponibles </td>
+                <td>
+                    {% if x.en_stock %}
+                    <a href="{% url 'figurasSell' x.id %}" class="btn btn-primary">Comprar</a>
+                    {%endif%}
+                </td>
+            </tr>
+        {% endif %}
+        {% endfor %}
+        {% for x in figuras %}
+        {% if not x.en_stock %}
+            <tr>
+                <td>{{x.figura}} - {{x.origen}}</td>
+                <td>{{x.fabricante}}</td>
+                <td>${{x.precio}}</td>
+                <td>Agotados</td>
+                <td></td>
+            </tr>
+        {% endif %}
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3>Juegos de Cartas</h3>
+<table class = "table table-stripped">
+    <thead>
+        <tr>
+            <th>Juego</th>
+            <th></th>
+            <th>precio</th>
+            <th>disponibles</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for x in cartas %}
+        {% if x.en_stock %}
+            <tr>
+                {% if x.adultos %}
+                <td>{{x.juego}} +18</td>
+                {% else %}
+                <td>{{x.juego}}</td>    
+                {% endif %}
+                <td>{{x.cantCartas}} cartas</td>
+                <td>${{x.precio}}</td>
+                <td>{{x.disponibles}} disponibles </td>
+                <td>
+                    {% if x.en_stock %}
+                    <a href="{% url 'cartasSell' x.id %}" class="btn btn-primary">Comprar</a>
+                    {%endif%}
+                </td>
+            </tr>
+        {% endif %}
+        {% endfor %}
+        {% for x in cartas %}
+        {% if not x.en_stock %}
+            <tr>
+                {% if x.adultos %}
+                <td>{{x.juego}} +18</td>
+                {% else %}
+                <td>{{x.juego}}</td>    
+                {% endif %}
+                <td>{{x.cantCartas}} cartas</td>
+                <td>${{x.precio}}</td>
+                <td>Agotados</td>
+                <td></td>
+            </tr>
+        {% endif %}
+        {% endfor %}
+    </tbody>
+</table>
+
+<h4>Juegos de Mesa</h4>
+<table class = "table table-stripped">
+    <thead>
+        <tr>
+            <th>Juego</th>
+            <th></th>
+            <th>precio</th>
+            <th>disponibles</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for x in mesa %}
+        {% if x.en_stock %}
+            <tr>
+                {% if x.adultos %}
+                <td>{{x.juego}} +18</td>
+                {% else %}
+                <td>{{x.juego}}</td>    
+                {% endif %}
+                <td>{{x.piezas}} piezas</td>
+                <td>${{x.precio}}</td>
+                <td>{{x.disponibles}} disponibles </td>
+                <td>
+                    {% if x.en_stock %}
+                    <a href="{% url 'mesaSell' x.id %}" class="btn btn-primary">Comprar</a>
+                    {%endif%}
+                </td>
+            </tr>
+        {% endif %}
+        {% endfor %}
+        {% for x in mesa %}
+        {% if not x.en_stock %}
+            <tr>
+                {% if x.adultos %}
+                <td>{{x.juego}} +18</td>
+                {% else %}
+                <td>{{x.juego}}</td>    
+                {% endif %}
+                <td>{{x.piezas}} piezas</td>
+                <td>${{x.precio}}</td>
+                <td>Agotados</td>
+                <td></td>
+            </tr>
+        {% endif %}
+        {% endfor %}
+    </tbody>
+</table>          
+{% endblock cuerpo_de_la_pagina %}

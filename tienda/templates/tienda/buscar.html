@@ -1,0 +1,24 @@
+{% extends "tienda/index.html" %}
+{% load static %}
+
+
+{% block titulo %}
+<h1 class="masthead-heading mb-0">Buscar Productos</h1>
+{% endblock titulo %}
+
+
+{% block botones %}
+{% endblock botones %}
+
+{% block cuerpo_de_la_pagina %}
+<div class = "d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3"> 
+    <form action="{% url 'encontrar' %}" method = "get">
+        {% csrf_token %}
+        <table>
+            <p>Buscar Producto<input type = text name = buscar id = buscar></p>
+        </table>
+        <button type = "sumbit" value= "buscar">Buscar</button>
+    </form>
+</div>
+{% endblock %}
+    

@@ -1,0 +1,54 @@
+{% extends "tienda/index.html" %}
+{% load static %}
+
+
+{% block titulo %}
+<h1 class="masthead-heading mb-0">Juegos de Mesa</h1>
+{% endblock titulo %}
+    
+
+{% block cuerpo_de_la_pagina %}
+<table class = "table table-stripped">
+    <thead>
+        <tr>
+            <th>Juego</th>
+            <th></th>
+            <th></th>
+            <th>precio</th>
+            <th>disponibles</th>
+            <th>Añadir <a href="{% url 'mesaAdd' %}" class="btn btn-primary btn-sm"><i class="fa fa-plus fa-lg" title="Crear"> </i></a></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for x in juMesa %}
+            <tr>                  
+                <td><img src = {{x.foto.url}} height = 40px weight= 40px ></td>
+                {% if x.adultos %}
+                <td>{{x.juego}} +18</td>
+                {% else %}
+                <td>{{x.juego}}</td>    
+                {% endif %}
+                <td>{{x.piezas}} piezas</td>
+                <td>${{x.precio}}</td>
+                {% if x.en_stock %}
+                <td>{{x.disponibles}} disponibles </td>
+                {% else %}
+                <td>Agotados</td>
+                {% endif %}
+                <td>
+                    Editar    
+                    <a href= "{% url 'mesaUpdt' x.id %}" class="btn btn-primary"style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"><i class="fa fa-edit fa-sm" title="Edit Record"></i></a>
+                    <a href= "{% url 'mesaDel' x.id %}" class="btn btn-danger" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"><i class="fa fa-trash fa-sm" title="Delete Record"></i></a>                
+                </td>
+                <td>
+                    {% if x.en_stock %}
+                    <a href="{% url 'mesaSell' x.id %}" class="btn btn-primary">Comprar</a>
+                    {%endif%}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>                
+{% endblock %}
+    

@@ -1,0 +1,16 @@
+{% extends 'tienda/index.html' %}
+{% load static %}
+
+{% block titulo %}
+{% endblock titulo %}
+ 
+{% block cuerpo_de_la_pagina %}
+<form action="{% url 'home' %}" method="post" enctype ="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+    <button type ="sumbit">Editar</button>
+</form>
+
+{% endblock cuerpo_de_la_pagina %}    

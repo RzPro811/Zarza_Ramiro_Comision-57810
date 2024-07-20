@@ -1,0 +1,16 @@
+{% extends 'tienda/index.html' %}
+{% load static %}
+
+{% block titulo %}
+<h1 class="masthead-heading mb-0">Acerca de</h1>
+{% endblock titulo %}
+    
+
+{% block cuerpo_de_la_pagina %}
+<h1>Acerca de Mí</h1>
+<div class=" d-sm-flex justify-content-sm-center ">
+    <img src= "{% static 'assets/yo.png' %}"  height = 500px weight = 500px>
+</div>
+<p>Mi nombre es Ramiro Zarza, 19 años. Soy de Quilmes, en Buenos Aires, Argentina, y esta es mi super pagina web. Desde chico que fui fanatico de los videojuegos y me gustaba la idea de poder hacer uno. Quería ser programador y hacer juegos, pero luego esa pasión se perdió entre muchas cosas que no valen la pena detallar porque no vienen al caso. Pero recientemente volví a eso cuando descubrí mi pasión por las matematicas y las computadoras (y los juegos, obvio). Escogí la carrera de analista en sistemas y, cuando ví la oportunidad de entrar a Coderhouse, dije "Esta es mi oportunidad, un regalo de Dios mismo". Y bueno, aqui toy, haciendo una pagina web. No es un videojuego pero algo es algo :) </p>
+{% endblock cuerpo_de_la_pagina %}
+    

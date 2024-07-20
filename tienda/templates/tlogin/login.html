@@ -1,0 +1,23 @@
+{%extends "tienda/index.html"%}
+{% load static %}
+
+{% block titulo %}
+<h1 class="masthead-heading mb-0">Iniciar Sesion</h1>
+{% endblock titulo %}
+
+
+{% block botones %}
+{% endblock botones %}
+
+{% block cuerpo_de_la_pagina %}
+<form action = "" method = "post">
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+    <button type = "sumbit" value = "login">Iniciar Sesion</button>
+</form>
+
+
+{% endblock cuerpo_de_la_pagina %}
+    
